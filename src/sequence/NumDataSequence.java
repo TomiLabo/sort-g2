@@ -69,8 +69,8 @@ public class NumDataSequence {
     }
     
     /**
-     * <b>配列の要素のp1とp2を比較します．</b><br />
-     * p1番目の要素がp2番目の要素以上の大きさのとき True を返します
+     * <b>配列の要素のp1とp2が正しい順番か判定します</b><br />
+     * raw[p1] ＜ raw[p2] のとき True を返します
      * @param p1 {int}
      * @param p2 {int}
      * @return boolean
@@ -88,7 +88,7 @@ public class NumDataSequence {
      * @param p2 {int}
      * @return boolean
      */
-    public boolean orderBy(OrderType type, int p1, int p2) {
+    public boolean orderBy(int p1, int p2, OrderType type) {
         compareCount++;
         switch (type) {
         case ASC:
@@ -170,9 +170,9 @@ public class NumDataSequence {
         for (int i = 1; i < range; i++) {
             switch (type) {
             case ASC:
-                if (this.orderByExceed(i - 1, i)) { return false; }
+                if (this.orderBy(i - 1, i, OrderType.ASC)) { return false; }
             case DESC:
-                if (this.orderByOver(i - 1, i)) { return false; }
+                if (this.orderBy(i - 1, i, OrderType.DESC)) { return false; }
             }
         }
         return true;
@@ -199,25 +199,5 @@ public class NumDataSequence {
     private boolean orderByLower(int p1, int p2) {
         ComparedState state = this.raw[p1].compare(this.raw[p2]);
         return state == ComparedState.LESS || state == ComparedState.SAME;
-    } 
-
-    /**
-     * <b>p1番目がp2番目の要素より大きいとき，trueを返す</b>
-     * @param p1 {int}
-     * @param p2 {int}
-     * @return boolean
-     */
-    private boolean orderByExceed(int p1, int p2) {
-        return this.raw[p1].compare(this.raw[p2]) == ComparedState.EXCEED;
-    }
-
-    /**
-     * <b>p1番目がp2番目の要素より小さいとき，trueを返す</b>
-     * @param p1 {int}
-     * @param p2 {int}
-     * @return boolean
-     */
-    private boolean orderByLess(int p1, int p2) {
-        return this.raw[p1].compare(this.raw[p2]) == ComparedState.LESS;
     } 
 }
