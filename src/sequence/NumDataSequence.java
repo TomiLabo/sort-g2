@@ -53,6 +53,11 @@ public class NumDataSequence {
         swapCount++;
         Collections.swap(Arrays.asList(this.raw), p1, p2);
     }
+
+    public void swap(int p1, int p2, boolean flag) {
+        if (flag) swapCount++;
+        Collections.swap(Arrays.asList(this.raw), p1, p2);
+    }
     
     /**
      * <b>swapの必要があればスワップする<b/><br />
