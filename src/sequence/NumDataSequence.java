@@ -61,11 +61,10 @@ public class NumDataSequence {
      * @return boolean スワップしたかどうか
      */
     public boolean swapIfNeeded(int p1, int p2) {
-        if (!this.order(p1, p2)) {
-            this.swap(p1, p2);
-            return true;
-        }
-        return false;
+        // 期待した順番に並んでいたら交換しない
+        if (this.order(p1, p2)) return false;
+        this.swap(p1, p2);
+        return true;
     }
     
     /**

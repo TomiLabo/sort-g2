@@ -36,7 +36,6 @@ public class NumSimpleSorter {
         }
     }
     
-    
     public static void shaker(NumDataSequence seq) {
         int i = 1;
         int j = seq.size() - 1;
