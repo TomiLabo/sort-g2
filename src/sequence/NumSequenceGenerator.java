@@ -25,7 +25,7 @@ public class NumSequenceGenerator {
     
     public static NumDataSequence generateByShuffle(int size, double probability) {
         NumDataSequence dataSequence = NumSequenceGenerator.generateOfSorted(size);
-        for (int i = 0; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             Random randFunc = new Random();
             if (Math.random() > probability) { continue; }
             int right = randFunc.nextInt(i);
