@@ -119,6 +119,14 @@ public class NumDataSequence {
     }
     
     /**
+     * 
+     * @param index
+     * @return
+     */
+    public NumData get(int index) {
+        return this.raw[index];
+    }
+    /**
      * <b>現在保持しているデータ数を返却します</b><br />
      * @return int
      */
@@ -191,7 +199,7 @@ public class NumDataSequence {
      */
     private boolean orderByOver(int p1, int p2) {
         ComparedState state = this.raw[p1].compare(this.raw[p2]);
-        return state == ComparedState.EXCEED || state == ComparedState.SAME;
+        return state == ComparedState.GT || state == ComparedState.EQ;
     } 
 
     /**
@@ -202,6 +210,6 @@ public class NumDataSequence {
      */
     private boolean orderByLower(int p1, int p2) {
         ComparedState state = this.raw[p1].compare(this.raw[p2]);
-        return state == ComparedState.LESS || state == ComparedState.SAME;
+        return state == ComparedState.LT || state == ComparedState.EQ;
     } 
 }

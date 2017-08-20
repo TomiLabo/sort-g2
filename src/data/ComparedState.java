@@ -1,7 +1,7 @@
 package data;
 
 public enum ComparedState {
-    EXCEED,
-    SAME,
-    LESS,
+    GT,
+    EQ,
+    LT,
 }
